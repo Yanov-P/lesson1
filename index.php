@@ -1,37 +1,21 @@
 <?php
-function square($x){
-    return $x*$x;
+include "page.php";
+class main_content implements i_content
+{
+
+    function show_content()
+    {
+        echo "<form action=\"subarray.php\" method=\"POST\">
+     <input name=\"myActionName\" type=\"submit\" value=\"Подмножества\" />
+    </form>";
+        echo "<form action=\"table.php\" method=\"POST\">
+     <input name=\"myActionName\" type=\"submit\" value=\"Таблица простых\" />
+    </form>";
+
+    }
+    function get_title()
+    {
+        return "Первая страница сайта";
+    }
 }
-print <<<TITLE
-<html>
-<head>
-<title>Тестовая вкладка</title>
-</head>
-<body>
-TITLE;
-
-print("Hello, ");
-echo "World!<br>";
-$x = date("G");
-print($x );
-print("<br>");
-if($x >= 16 && $x<= 21) {
-    print("Добрый вечер<br>");
-
-}
-for($i = 0; $i < $x; $i++){
-    print"-";
-}
-$i=0;
-print"<br>";
-while ($i<10){
-    print "+ $i";
-    $i++;
-}
-
-
-
-print <<<FOOT
-</body>
-</html>
-FOOT;
+$page = new page(new main_content());
