@@ -41,6 +41,32 @@ ENDTABLE;
 return;
 }
 
+function show_mnojestvo($maxnum = 10){
+    $a = array();
+    for($n = 1; $n < $maxnum; $n++){
+        $a[$n] = $n;
+    }
+
+    for($n = 1; $n < $maxnum; $n++){
+        $a[$n] = $n;
+    }
+
+    $i = 0;
+    $mx = 1;
+    $j = 0;
+
+    for($i=0, $mx=1; $i < $maxnum; $i++)
+        $mx *= 2;  // Вместо pow(2, N)
+    for($i=0; $i < $mx; $i++)
+     {
+         for($j=0; $j < $maxnum; $j++)
+       if (($i >> $j) & 1) print($a[$j] );
+         print("<br/>");
+     }
+
+    return;
+}
+
 print <<<TITLE
 <html>
 <head>
@@ -49,7 +75,9 @@ print <<<TITLE
 <body>
 TITLE;
 
-show_simple_numbers_table(500,13);
+//show_simple_numbers_table(500,13);
+show_mnojestvo();
+
 
 print <<<FOOT
 </body>
