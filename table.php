@@ -2,7 +2,7 @@
 include "page.php";
 function show_simple_numbers_table($maxnum = 1000, $maxinrow = 20){
 print<<<TABLE
-<table border="1" align="center" >
+<table >
 <tr>
 TABLE;
     //amount of found simple numbers
